@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Sahuh Agency</title>
+    <meta name="description" content="Admin dashboard for managing Sahuh Agency portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <span class="topbar-logo">⚙️</span>
+            <h1 class="topbar-title">Sahuh <span class="accent">Admin</span></h1>
+        </div>
+        <div class="topbar-right">
+            <a href="index.html" class="btn-outline" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Portfolio
+            </a>
+        </div>
+    </header>
+
+    <main class="admin-main">
+
+        <!-- ===== TEXT SETTINGS PANEL ===== -->
+        <section class="panel" id="textPanel">
+            <div class="panel-head">
+                <div class="panel-icon">📝</div>
+                <div>
+                    <h2 class="panel-title">Portfolio Text</h2>
+                    <p class="panel-desc">Edit all visible text on your portfolio website</p>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="txt-agencyName">Agency Name (Line 1)</label>
+                        <input type="text" id="txt-agencyName" placeholder="SAHUH">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-agencySubName">Agency Name (Line 2)</label>
+                        <input type="text" id="txt-agencySubName" placeholder="AGENCY">
+                    </div>
+                    <div class="form-group span-full">
+                        <label for="txt-tagline">Tagline</label>
+                        <input type="text" id="txt-tagline" placeholder="Premium Video Editing">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-sectionTitle">Section Title</label>
+                        <input type="text" id="txt-sectionTitle" placeholder="Our">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-sectionAccent">Section Title (Gradient Text)</label>
+                        <input type="text" id="txt-sectionAccent" placeholder="Work">
+                    </div>
+                    <div class="form-group span-full">
+                        <label for="txt-sectionSub">Section Subtitle</label>
+                        <input type="text" id="txt-sectionSub" placeholder="Cinematic edits that tell your story">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-buttonText">CTA Button Text</label>
+                        <input type="text" id="txt-buttonText" placeholder="Get Sample Edit">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-playHint">Play Hint Text</label>
+                        <input type="text" id="txt-playHint" placeholder="Tap to explore">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-whatsapp">WhatsApp Number (with country code)</label>
+                        <input type="text" id="txt-whatsapp" placeholder="+91XXXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-bgAudio">Background Audio URL (direct MP3)</label>
+                        <input type="url" id="txt-bgAudio" placeholder="https://example.com/music.mp3">
+                    </div>
+                </div>
+                <button id="saveTextBtn" class="btn-primary save-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save Text Settings
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== VIMEO LIBRARY PANEL ===== -->
+        <section class="panel" id="videoPanel">
+            <div class="panel-head">
+                <div class="panel-icon">🎬</div>
+                <div>
+                    <h2 class="panel-title">Vimeo Library</h2>
+                    <p class="panel-desc">Manage your video collection. Toggle up to 4 videos to show on portfolio.</p>
+                </div>
+            </div>
+            <div class="panel-body">
+                <!-- Add Video Form -->
+                <div class="add-video-bar">
+                    <div class="add-input-group">
+                        <input type="text" id="new-vimeoId" placeholder="Vimeo ID (e.g. 824804225)">
+                    </div>
+                    <div class="add-input-group">
+                        <input type="text" id="new-videoName" placeholder="Video Name (e.g. Wedding Reel)">
+                    </div>
+                    <button id="addVideoBtn" class="btn-primary btn-add">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add
+                    </button>
+                </div>
+
+                <!-- Active count -->
+                <div class="active-count" id="activeCount">
+                    <span class="count-badge">0</span> / 4 videos active on portfolio
+                </div>
+
+                <!-- Video List -->
+                <div class="video-list" id="videoList">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">📂</div>
+                        <p>No videos yet</p>
+                        <span>Add your first Vimeo video above</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== THUMBNAIL SELECTOR MODAL ===== -->
+    <div id="thumbModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h3>🎞️ Select Thumbnail Frame</h3>
+                <button id="closeThumbModal" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-hint">Use the video controls to seek to your desired frame, then click the button below.</p>
+                <div class="thumb-player-wrap" id="thumbPlayerWrap">
+                    <!-- Vimeo player iframe inserted by JS -->
+                </div>
+                <button id="setThumbBtn" class="btn-primary btn-capture">
+                    📸 Set This Frame as Thumbnail
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- ===== EDIT VIDEO MODAL ===== -->
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h3>✏️ Edit Video</h3>
+                <button id="closeEditModal" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="edit-form">
+                    <div class="form-group">
+                        <label for="edit-videoName">Video Name</label>
+                        <input type="text" id="edit-videoName" placeholder="e.g. Wedding Reel">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-vimeoId">Vimeo ID</label>
+                        <input type="text" id="edit-vimeoId" placeholder="e.g. 824804225">
+                    </div>
+                    <button id="saveEditBtn" class="btn-primary btn-capture">
+                        💾 Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (compat for static-site simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <!-- Admin Script -->
+    <script src="admin.js"></script>
+</body>
+</html>
